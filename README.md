@@ -5,7 +5,7 @@
     </div>
     <br />
     <img
-        src="assets/uai.png"
+        src="docs/assets/uai.png"
         alt="UaiCoin"
         style="
             height: 100px; 

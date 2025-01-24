@@ -17,7 +17,7 @@ For this project, I developed an ERC-20 smart contract for the UAI token, explor
 
 UaiCoin may be fictional, but the knowledge I gained is very real! 🚀
 
-👉 Curious about the project? Check out the repository here: https://link.com
+👉 Curious about the project? Check out the repository here: https://guilhermealbert.github.io/uai/
 
 If Trump can have his own memecoin, why can’t Brazil? UAI sô! 😄
 

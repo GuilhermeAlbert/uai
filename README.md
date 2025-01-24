@@ -21,7 +21,7 @@ UaiCoin is a Brazilian-inspired memecoin project created for educational purpose
 
 ## Overview
 
-UaiCoin is a simple ERC-20 token smart contract developed in Solidity. It represents the basic structure of a cryptocurrency token and includes essential functionalities such as token transfer and balance tracking.
+UaiCoin is a simple ERC-20 token smart contract developed in Solidity. It represents the basic structure of a cryptocurrency token and includes essential functionalities such as token transfers, approvals, and balance tracking.
 
 ## Features
 
@@ -32,6 +32,9 @@ UaiCoin is a simple ERC-20 token smart contract developed in Solidity. It repres
 - **Functionalities**:
   - Token transfers between accounts.
   - Balance tracking for each account.
+  - Approval and allowance for delegated transfers (`approve` and `transferFrom`).
+  - Burn tokens to reduce total supply.
+  - Emits `Transfer` and `Approval` events as per ERC-20 standard.
 
 ## Disclaimer
 

@@ -1,242 +1,674 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UaiCoin | Minas Gerais Memecoin</title>
+    <title>UaiCoin | The Future of Minas Finance</title>
 
-    <link rel="shortcut icon" href="branding.png" type="image/x-png" />
+    <link rel="shortcut icon" href="assets/uai.png" type="image/x-png" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
 
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-white text-gray-800">
-    <header class="bg-[#010101] py-4 shadow-md">
-      <div class="container mx-auto px-4 flex items-center justify-between">
-        <h1 class="text-3xl font-bold flex items-center gap-4 text-white">
-          <img
-            src="branding.png"
-            alt="UaiCoin"
-            class="w-16 h-16 rounded-full"
-          />
-          UaiCoin
-        </h1>
-        <nav class="flex items-center gap-6">
-          <ul class="flex space-x-6">
-            <li>
-              <a href="#about" class="text-gray-400 hover:text-white">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#features" class="text-gray-400 hover:text-white">
-                Features
-              </a>
-            </li>
-            <li>
-              <a href="#support" class="text-gray-400 hover:text-white">
-                Support
-              </a>
-            </li>
-          </ul>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                yellow: "#fbbf24",
+                dark: "#030712",
+                purple: "#7c3aed",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="antialiased">
+    <div class="gradient-bg"></div>
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="relative">
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-orange-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"
+            ></div>
+            <img
+              src="assets/uai.png"
+              alt="UaiCoin"
+              class="relative w-10 h-10 rounded-full border border-white/10"
+            />
+          </div>
+          <span class="text-xl font-bold tracking-wide font-['Space_Grotesk']"
+            >Uai<span class="text-brand-yellow">Coin</span></span
+          >
+        </a>
+
+        <div
+          class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300"
+        >
+          <a href="#about" class="hover:text-white transition-colors"
+            >Ecosystem</a
+          >
+          <a href="#features" class="hover:text-white transition-colors"
+            >Features</a
+          >
+          <a href="#tokenomics" class="hover:text-white transition-colors"
+            >Tokenomics</a
+          >
+          <a href="#roadmap" class="hover:text-white transition-colors"
+            >Roadmap</a
+          >
+        </div>
+
+        <div class="flex items-center gap-4">
           <a
             href="https://github.com/GuilhermeAlbert/uai"
             target="_blank"
-            class="text-gray-400 hover:text-white"
+            class="text-gray-400 hover:text-white transition-colors"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              class="w-6 h-6"
-            >
-              <path
-                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.257c-3.338.725-4.043-1.61-4.043-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.204.085 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.774.42-1.305.763-1.604-2.665-.306-5.467-1.333-5.467-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.45 11.45 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.62-5.48 5.92.432.372.823 1.103.823 2.222v3.293c0 .32.192.694.8.577C20.565 21.798 24 17.3 24 12c0-6.63-5.37-12-12-12z"
-              />
-            </svg>
+            <i class="fab fa-github text-xl"></i>
           </a>
-        </nav>
+          <button
+            onclick="openTipModal()"
+            class="hidden md:block px-6 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] text-black border border-transparent rounded-full text-sm font-bold transition-all backdrop-blur-sm transform hover:scale-105"
+          >
+            Buy me a coffee ☕
+          </button>
+        </div>
       </div>
-    </header>
+    </nav>
 
     <section
-      class="py-40 bg-cover bg-center"
-      style="background-image: url('cheese.jpg')"
+      class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
     >
-      <div class="container mx-auto px-4 text-center text-white">
-        <h2 class="text-5xl font-extrabold">Do you want some coffee?</h2>
-        <p class="mt-4 text-xl">Pão de queijo, uai, trem, sô.</p>
-        <a
-          href="#about"
-          class="mt-6 inline-block bg-gray-800 text-white py-2 px-6 rounded-full shadow-lg hover:bg-gray-700"
-          >Learn More</a
+      <div
+        class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px] -z-10"
+      ></div>
+      <div
+        class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-[128px] -z-10"
+      ></div>
+
+      <div class="container mx-auto px-6 text-center z-10">
+        <div
+          class="inline-block mb-6 px-4 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400 text-xs font-semibold tracking-wider uppercase"
+          data-aos="fade-down"
         >
+          The First Minas Gerais DeFi Protocol
+        </div>
+
+        <h1
+          class="text-5xl md:text-7xl font-bold mb-8 leading-tight"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Decentralized <br />
+          <span class="text-gradient">Cheese Economy</span>
+        </h1>
+
+        <p
+          class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          UaiCoin brings the blockchain revolution to the mountains of Minas.
+          Secure, scalable, and backed by the immutable proof of Pão de Queijo.
+        </p>
+
+        <div
+          class="flex flex-col md:flex-row gap-4 justify-center items-center"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <a
+            href="#about"
+            class="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full font-bold text-black hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] transition-all transform hover:-translate-y-1"
+          >
+            Start Mining
+          </a>
+          <a
+            href="https://github.com/GuilhermeAlbert/uai"
+            target="_blank"
+            class="px-8 py-4 glass-card rounded-full font-bold hover:bg-white/10 transition-all flex items-center gap-2"
+          >
+            <i class="fab fa-github"></i> View Source
+          </a>
+        </div>
+
+        <div class="mt-20 relative w-full max-w-4xl mx-auto h-64 md:h-96 float">
+          <img
+            src="assets/uai.png"
+            alt="Uai Coin 3D"
+            class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full mx-auto shadow-[0_0_100px_rgba(251,191,36,0.2)] border-4 border-white/5"
+          />
+        </div>
       </div>
     </section>
 
-    <section id="about" class="py-16">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center">About UaiCoin</h2>
-        <p class="mt-6 text-lg text-center text-gray-600">
-          UaiCoin is a Brazilian-inspired memecoin project created for
-          educational purposes. It is not deployed on any blockchain and exists
-          solely for local development and learning.
-        </p>
-
-        <p class="mt-6 text-lg text-center text-gray-600">
-          The project showcases the vibrant culture of Minas Gerais and brings
-          the joy of Brazilian memes into the cryptocurrency space. While not a
-          real coin, UaiCoin helps developers and enthusiasts explore how
-          cryptocurrencies and blockchain technology work in a lighthearted and
-          fun way.
-        </p>
+    <section class="py-10 border-y border-white/5 bg-black/20 backdrop-blur-sm">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div data-aos="fade-up">
+            <div class="text-3xl font-bold text-white mb-1">$0.00</div>
+            <div class="text-sm text-gray-500 uppercase tracking-wider">
+              Price
+            </div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="100">
+            <div class="text-3xl font-bold text-white mb-1">100M</div>
+            <div class="text-sm text-gray-500 uppercase tracking-wider">
+              Total Supply
+            </div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="200">
+            <div class="text-3xl font-bold text-white mb-1">12k+</div>
+            <div class="text-sm text-gray-500 uppercase tracking-wider">
+              Holders (Fake)
+            </div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="300">
+            <div class="text-3xl font-bold text-white mb-1">∞</div>
+            <div class="text-sm text-gray-500 uppercase tracking-wider">
+              Flavor
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="features" class="py-16">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center">Features</h2>
-        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center">
-            <div class="text-gray-800 text-6xl mb-4">&#128170;</div>
-            <h3 class="text-xl font-bold">Fun and Educational</h3>
-            <p class="text-gray-600 mt-2">
-              Learn how cryptocurrencies work in a fun and simple way.
+    <section id="about" class="py-32 relative">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+          <div class="w-full md:w-1/2" data-aos="fade-right">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+              The <span class="text-gradient-purple">Smartest</span> Contract
+              <br />
+              in the Farm.
+            </h2>
+            <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+              UaiCoin isn't just a memecoin; it's an educational journey into
+              the heart of Solidity. Built on standard ERC-20 protocols, it
+              demonstrates how value can be transferred digitally, just like a
+              warm tray of cheese bread at a family gathering.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 text-gray-300">
+                <i class="fas fa-check-circle text-brand-yellow"></i>
+                <span>Fully ERC-20 Compliant</span>
+              </li>
+              <li class="flex items-center gap-3 text-gray-300">
+                <i class="fas fa-check-circle text-brand-yellow"></i>
+                <span>Zero Gas Fees (on Localhost)</span>
+              </li>
+              <li class="flex items-center gap-3 text-gray-300">
+                <i class="fas fa-check-circle text-brand-yellow"></i>
+                <span>Community Driven Development</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:w-1/2" data-aos="fade-left">
+            <div
+              class="glass-card p-8 rounded-2xl relative overflow-hidden group"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 rounded-full blur-3xl transition-all group-hover:bg-brand-yellow/20"
+              ></div>
+              <pre
+                class="text-xs md:text-sm text-gray-300 font-mono overflow-x-auto"
+              >
+<span class="text-purple-400">contract</span> <span class="text-yellow-400">UaiCoin</span> <span class="text-purple-400">is</span> ERC20 {
+    <span class="text-purple-400">constructor</span>() <span class="text-purple-400">ERC20</span>(<span class="text-green-400">"UaiCoin"</span>, <span class="text-green-400">"UAI"</span>) {
+        _mint(msg.sender, <span class="text-blue-400">100000000</span> * <span class="text-blue-400">10</span> ** decimals());
+    }
+
+    <span class="text-gray-500">// The secret ingredient is love</span>
+    <span class="text-purple-400">function</span> <span class="text-yellow-400">bakeCheeseBread</span>() <span class="text-purple-400">public</span> {
+        <span class="text-gray-500">// Implementation pending...</span>
+    }
+}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="py-20">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">Core Features</h2>
+          <p class="text-gray-400">
+            Everything you need to understand crypto, Minas style.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-yellow-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-graduation-cap text-2xl text-yellow-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Educational First</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Designed to teach the fundamentals of blockchain technology
+              without the risk of losing real money.
             </p>
           </div>
-          <div class="text-center">
-            <div class="text-gray-800 text-6xl mb-4">&#127773;</div>
-            <h3 class="text-xl font-bold">Brazilian Inspiration</h3>
-            <p class="text-gray-600 mt-2">
-              Showcasing the vibrant and unique culture of Brazil.
+
+          <div
+            class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-code text-2xl text-purple-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Open Source</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              The entire codebase is available on GitHub. Fork it, clone it,
+              improve it. It's ours.
             </p>
           </div>
-          <div class="text-center">
-            <div class="text-gray-800 text-6xl mb-4">&#128640;</div>
-            <h3 class="text-xl font-bold">Easy to Use</h3>
-            <p class="text-gray-600 mt-2">
-              Straightforward implementation for local development.
+
+          <div
+            class="glass-card p-8 rounded-2xl hover:bg-white/5 transition-all duration-300 group"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-leaf text-2xl text-green-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Sustainable</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Runs on local testnets, consuming zero energy compared to Proof of
+              Work mainnets.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="py-16 bg-gray-100">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center">
+    <section id="tokenomics" class="py-20 bg-black/20 relative overflow-hidden">
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"
+      ></div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">Tokenomics</h2>
+          <p class="text-gray-400">
+            Perfectly balanced, like a good Pão de Queijo.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-8">
+          <div class="w-full md:w-5/12" data-aos="fade-right">
+            <div
+              class="glass-card p-8 rounded-2xl h-full flex flex-col justify-center items-center text-center"
+            >
+              <div
+                class="w-48 h-48 rounded-full border-8 border-brand-yellow/20 relative flex items-center justify-center mb-8"
+              >
+                <div class="text-3xl font-bold text-brand-yellow">100M</div>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Total Supply</h3>
+              <p class="text-gray-400 text-sm">
+                One for every "Uai" said in Minas Gerais today.
+              </p>
+            </div>
+          </div>
+
+          <div class="w-full md:w-6/12" data-aos="fade-left">
+            <div class="space-y-4">
+              <div
+                class="glass-card p-6 rounded-xl flex items-center gap-4 hover:bg-white/5 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold"
+                >
+                  50%
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg">
+                    Liquidity Pool (Doce de Leite Reserve)
+                  </h4>
+                  <p class="text-gray-400 text-sm">
+                    Locked forever in the pantry.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="glass-card p-6 rounded-xl flex items-center gap-4 hover:bg-white/5 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold"
+                >
+                  30%
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg">
+                    Community Airdrop (Cafezinho)
+                  </h4>
+                  <p class="text-gray-400 text-sm">
+                    Free tokens for everyone who visits.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="glass-card p-6 rounded-xl flex items-center gap-4 hover:bg-white/5 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-bold"
+                >
+                  10%
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg">Dev Team (Cheese Fund)</h4>
+                  <p class="text-gray-400 text-sm">
+                    To keep the developers fed.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="glass-card p-6 rounded-xl flex items-center gap-4 hover:bg-white/5 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 font-bold"
+                >
+                  10%
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg">Burn (Burnt Crusts)</h4>
+                  <p class="text-gray-400 text-sm">
+                    Removed from circulation for extra crunch.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="py-20">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">Roadmap</h2>
+          <p class="text-gray-400">
+            Our path to the top of the mountain (Serra do Curral).
+          </p>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto">
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-brand-yellow to-brand-purple opacity-20"
+          ></div>
+
+          <div
+            class="relative flex items-center justify-between mb-12 w-full"
+            data-aos="fade-up"
+          >
+            <div class="w-5/12 text-right pr-8">
+              <h3 class="text-xl font-bold text-brand-yellow mb-2">
+                Phase 1: O Início
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Planting the coffee, milking the cow, and writing the first
+                lines of Solidity code.
+              </p>
+            </div>
+            <div
+              class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-brand-dark border-4 border-brand-yellow rounded-full z-10"
+            ></div>
+            <div class="w-5/12 pl-8"></div>
+          </div>
+
+          <div
+            class="relative flex items-center justify-between mb-12 w-full"
+            data-aos="fade-up"
+          >
+            <div class="w-5/12 pr-8"></div>
+            <div
+              class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-brand-dark border-4 border-brand-purple rounded-full z-10"
+            ></div>
+            <div class="w-5/12 pl-8 text-left">
+              <h3 class="text-xl font-bold text-purple-400 mb-2">
+                Phase 2: A Massa
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Mixing the ingredients. Smart Contract deployment on localhost.
+                Letting the dough rise.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative flex items-center justify-between mb-12 w-full"
+            data-aos="fade-up"
+          >
+            <div class="w-5/12 text-right pr-8">
+              <h3 class="text-xl font-bold text-green-400 mb-2">
+                Phase 3: O Forno
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Baking at 180°C. Community growth, memes spreading like the
+                smell of fresh cheese bread.
+              </p>
+            </div>
+            <div
+              class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-brand-dark border-4 border-green-400 rounded-full z-10"
+            ></div>
+            <div class="w-5/12 pl-8"></div>
+          </div>
+
+          <div
+            class="relative flex items-center justify-between w-full"
+            data-aos="fade-up"
+          >
+            <div class="w-5/12 pr-8"></div>
+            <div
+              class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-brand-dark border-4 border-orange-500 rounded-full z-10"
+            ></div>
+            <div class="w-5/12 pl-8 text-left">
+              <h3 class="text-xl font-bold text-orange-500 mb-2">
+                Phase 4: O Cafezinho
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Serving hot with UaiCoin. Global adoption (or at least in Belo
+                Horizonte).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-black/20">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-12"
+          data-aos="fade-up"
+        >
           Frequently Asked Questions
         </h2>
 
-        <div class="mt-10">
-          <div class="mb-6">
-            <h3 class="text-xl font-semibold">
-              Is UaiCoin a real cryptocurrency?
-            </h3>
-
-            <p class="mt-2 text-gray-600">
-              No, UaiCoin is a fictional memecoin created for educational and
-              learning purposes. It is not deployed on any blockchain and holds
-              no monetary value.
-            </p>
-          </div>
-
-          <div class="mb-6">
-            <h3 class="text-xl font-semibold">Can I buy UaiCoin?</h3>
-            <p class="mt-2 text-gray-600">
-              No, UaiCoin is not for sale or trade. It is strictly a project to
-              demonstrate how cryptocurrencies and smart contracts work.
-            </p>
-          </div>
-
-          <div class="mb-6">
-            <h3 class="text-xl font-semibold">
-              Where can I see the code for UaiCoin?
-            </h3>
-            <p class="mt-2 text-gray-600">
-              You can check out the project on GitHub at the following link:
-              <a
-                href="https://github.com/GuilhermeAlbert/uai"
-                target="_blank"
-                class="text-blue-500 hover:underline"
-              >
-                UaiCoin GitHub Repository
-              </a>
-            </p>
-          </div>
-
-          <div class="mb-6">
-            <h3 class="text-xl font-semibold">
-              What did you learn while building UaiCoin?
-            </h3>
-            <p class="mt-2 text-gray-600">
-              I learned about creating ERC-20 tokens, developing smart contracts
-              in Solidity, testing on local blockchains like Hardhat, and
-              designing responsive web interfaces using Tailwind CSS.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="support" class="py-16">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center">Buy me a coffee</h2>
-
-        <p class="mt-4 text-center text-gray-600">
-          If you love UaiCoin and want to support its development or just
-          appreciate the effort, here are some ways you can contribute:
-        </p>
-
-        <div class="mt-8 max-w-lg mx-auto text-center">
-          <div class="mb-4">
-            <h3 class="text-xl font-bold">Brave Rewards</h3>
-            <p class="text-gray-600">
-              Send BAT to:
-              <span class="font-mono"></span>
-                <a href="https://publishers.basicattentiontoken.org/c/gKSrRTv3zh">
-                  https://publishers.basicattentiontoken.org/c/gKSrRTv3zh
-                </a>
-              </span>
-            </p>
-          </div>
-
-          <!-- <div class="mb-4">
-            <h3 class="text-xl font-bold">Bitcoin</h3>
-            <p class="text-gray-600">
-              BTC Address:
-              <span class="font-mono">MY_CODE_HERE</span>
-            </p>
-          </div> -->
-
-          <!-- <div class="mb-4">
-            <h3 class="text-xl font-bold">Ethereum</h3>
-            <p class="text-gray-600">
-              ETH Address:
-              <span class="font-mono"> MY_CODE_HERE</span>
-            </p>
-          </div> -->
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-[#010101] py-4">
-      <div
-        class="container mx-auto px-4 text-center flex justify-center items-center gap-6"
-      >
-        <p class="text-gray-400">&copy; 2025 UaiCoin. All Rights Reserved.</p>
-
-        <div class="text-gray-400">
-          <p>Follow my projects on GitHub:</p>
-          <a
-            href="https://github.com/GuilhermeAlbert"
-            target="_blank"
-            class="text-blue-400 hover:underline"
+        <div class="space-y-4">
+          <div
+            class="glass-card rounded-xl p-6 cursor-pointer hover:border-yellow-500/30 transition-colors"
+            data-aos="fade-up"
           >
-            https://github.com/GuilhermeAlbert
-          </a>
+            <h3 class="text-lg font-semibold mb-2 text-white">
+              Is this a real investment?
+            </h3>
+            <p class="text-gray-400 text-sm">
+              No. UaiCoin is strictly a fictional project for educational
+              purposes. Do not try to buy it on any exchange.
+            </p>
+          </div>
+
+          <div
+            class="glass-card rounded-xl p-6 cursor-pointer hover:border-yellow-500/30 transition-colors"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3 class="text-lg font-semibold mb-2 text-white">
+              How can I get UaiCoin?
+            </h3>
+            <p class="text-gray-400 text-sm">
+              You can deploy the contract locally using Hardhat or Truffle and
+              mint as many tokens as you want to your test wallet.
+            </p>
+          </div>
+
+          <div
+            class="glass-card rounded-xl p-6 cursor-pointer hover:border-yellow-500/30 transition-colors"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3 class="text-lg font-semibold mb-2 text-white">Why "Uai"?</h3>
+            <p class="text-gray-400 text-sm">
+              "Uai" is a famous interjection from the Minas Gerais dialect in
+              Brazil, used to express surprise, confirmation, or doubt. It's the
+              soul of the project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 bg-black/40">
+      <div class="container mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <div class="flex items-center gap-2">
+            <img
+              src="assets/uai.png"
+              alt="Logo"
+              class="w-8 h-8 rounded-full grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all"
+            />
+            <span class="text-gray-500 text-sm">© 2025 UaiCoin Project</span>
+          </div>
+
+          <div class="flex gap-6">
+            <a
+              href="https://github.com/GuilhermeAlbert/uai"
+              class="text-gray-500 hover:text-brand-yellow transition-colors"
+              ><i class="fab fa-github text-xl"></i
+            ></a>
+          </div>
         </div>
       </div>
     </footer>
+
+    <div
+      id="tipModal"
+      class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300"
+    >
+      <div
+        class="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        onclick="closeTipModal()"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4"
+      >
+        <div
+          class="glass-card p-8 rounded-2xl relative transform scale-95 transition-transform duration-300"
+          id="modalContent"
+        >
+          <button
+            onclick="closeTipModal()"
+            class="absolute top-4 right-4 text-gray-400 hover:text-white"
+          >
+            <i class="fas fa-times text-xl"></i>
+          </button>
+
+          <div class="text-center mb-6">
+            <div
+              class="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-coffee text-3xl text-brand-yellow"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Buy me a Coffee</h3>
+            <p class="text-gray-400 text-sm">
+              Or a Pão de Queijo. Support the development of UaiCoin!
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div
+              class="p-4 bg-white/5 rounded-xl border border-white/10 hover:border-brand-yellow/50 transition-colors"
+            >
+              <div class="flex items-center gap-3 mb-2">
+                <i class="fab fa-brave text-orange-500 text-xl"></i>
+                <span class="font-bold">Brave Rewards</span>
+              </div>
+              <p class="text-xs text-gray-400 mb-2">
+                Send BAT tips directly via Brave Browser or visit:
+              </p>
+              <a
+                href="https://guilhermealbert.com.br"
+                target="_blank"
+                class="text-brand-yellow text-sm hover:underline break-all"
+              >
+                https://guilhermealbert.com.br
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      const modal = document.getElementById("tipModal");
+      const modalContent = document.getElementById("modalContent");
+
+      function openTipModal() {
+        modal.classList.remove("hidden");
+        // Small delay to allow display:block to apply before opacity transition
+        setTimeout(() => {
+          modal.classList.remove("opacity-0");
+          modalContent.classList.remove("scale-95");
+          modalContent.classList.add("scale-100");
+        }, 10);
+      }
+
+      function closeTipModal() {
+        modal.classList.add("opacity-0");
+        modalContent.classList.remove("scale-100");
+        modalContent.classList.add("scale-95");
+
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 300);
+      }
+
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+      });
+    </script>
   </body>
 </html>
